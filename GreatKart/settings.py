@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'category'
+    'category',
+    'accounts',
+    'store'
 ]
 
 MIDDLEWARE = [
@@ -63,12 +65,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'category.context_processors.menu_links',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'GreatKart.wsgi.application'
+
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # Database
@@ -123,3 +128,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
